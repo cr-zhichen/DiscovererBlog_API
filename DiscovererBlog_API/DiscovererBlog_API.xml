@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DiscovererBlog_API</name>
+    </assembly>
+    <members>
+        <member name="T:DiscovererBlog_API.Migrations.initial">
+            <inheritdoc />
+        </member>
+        <member name="M:DiscovererBlog_API.Migrations.initial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DiscovererBlog_API.Migrations.initial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DiscovererBlog_API.Migrations.initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:User">
+            <summary>
+            用户表
+            </summary>
+        </member>
+        <member name="T:Article">
+            <summary>
+            文章表
+            </summary>
+        </member>
+        <member name="T:ArticleHistory">
+            <summary>
+            历史记录表
+            </summary>
+        </member>
+        <member name="T:Category">
+            <summary>
+            分类表
+            </summary>
+        </member>
+        <member name="T:Comment">
+            <summary>
+            评论表
+            </summary>
+        </member>
+        <member name="T:Notification">
+            <summary>
+            通知表
+            </summary>
+        </member>
+        <member name="P:ChatGPT_API.Tool.MailConfiguration.smtpService">
+            <summary>
+            SMTP服务器
+            </summary>
+        </member>
+        <member name="P:ChatGPT_API.Tool.MailConfiguration.sendEmail">
+            <summary>
+            发件人邮箱
+            </summary>
+        </member>
+        <member name="P:ChatGPT_API.Tool.MailConfiguration.sendPwd">
+            <summary>
+            SMTP密码
+            </summary>
+        </member>
+        <member name="P:ChatGPT_API.Tool.MailConfiguration.port">
+            <summary>
+            SMTP端口
+            </summary>
+        </member>
+        <member name="P:ChatGPT_API.Tool.MailConfiguration.reAddress">
+            <summary>
+            接收邮件的地址
+            </summary>
+        </member>
+        <member name="P:ChatGPT_API.Tool.MailConfiguration.subject">
+            <summary>
+            邮件主题
+            </summary>
+        </member>
+        <member name="P:ChatGPT_API.Tool.MailConfiguration.body">
+            <summary>
+            邮件内容
+            </summary>
+        </member>
+    </members>
+</doc>
