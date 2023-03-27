@@ -47,7 +47,7 @@ public class Article : ControllerBase
         //判断是否不是修改文章
         if (data.ArticleId is null)
         {
-            _dbLinkContext.Article.Add(new()
+            var newArticle = new global::Article()
             {
                 UserId = userId,
                 Title = data.Title,
@@ -56,10 +56,21 @@ public class Article : ControllerBase
                 Tags = data.Tags,
                 CreatedAt = data.CreateTime ?? DateTime.Now,
                 UpdatedAt = data.UpdateTime ?? DateTime.Now,
-            });
-            //保存修改 并获取文章Id
-            await _dbLinkContext.SaveChangesAsync();
-            int articleId = _dbLinkContext.Article.FirstOrDefault(o => o.UserId == userId)!.Id;
+            };
+            _dbLinkContext.Article.Add(newArticle);
+            //保存修改
+            int affectedRows = await _dbLinkContext.SaveChangesAsync();
+            int articleId = 0;
+
+            if (affectedRows > 0)
+            {
+                //获取文章Id
+                articleId = newArticle.Id;
+            }
+            else
+            {
+                return Ok(new Re(-1, "上传失败", null));
+            }
 
             //使用逗号分隔标签 并转换为数组
             string[] tags = data.Tags.Split(",");

@@ -38,6 +38,18 @@ public class Comment : ControllerBase
     [EnableCors("AllowAll")]
     public async Task<IActionResult> PostAComment(CommentRequest.PostAComment data)
     {
+        //判断文章是否存在
+        if (_dbLinkContext.Article.FirstOrDefault(o => o.Id == data.ArticleId) == null)
+        {
+            return Ok(new Re(-1, "文章不存在"));
+        }
+
+        //判断评论是否存在
+        if (data.ParentId != null && _dbLinkContext.Comment.FirstOrDefault(o => o.Id == data.ParentId) == null)
+        {
+            return Ok(new Re(-1, "评论不存在"));
+        }
+
         global::Comment comment = new();
 
         //判断是否有Token
@@ -63,6 +75,12 @@ public class Comment : ControllerBase
         }
         else
         {
+            //判断是否有用户名和邮箱
+            if (data.UserName == null || data.Email == null)
+            {
+                return Ok(new Re(-1, "请填写用户名和邮箱"));
+            }
+
             comment = new global::Comment()
             {
                 ArticleId = data.ArticleId,
@@ -147,6 +165,12 @@ public class Comment : ControllerBase
     [EnableCors("AllowAll")]
     public async Task<IActionResult> ViewComment(CommentRequest.ViewComment data)
     {
+        //查询文章是否存在
+        if (_dbLinkContext.Article.FirstOrDefault(o => o.Id == data.ArticleId) == null)
+        {
+            return Ok(new Re(-1, "文章不存在"));
+        }
+
         CommentResponse.ViewComment re = new();
 
         //查询评论
