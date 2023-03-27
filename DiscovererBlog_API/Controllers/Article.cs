@@ -370,7 +370,9 @@ public class Article : ControllerBase
         //根据关键字查询
         if (data.KeyWord != null)
         {
-            articleListQuery = articleListQuery.Where(o => o.Title.Contains(data.KeyWord));
+            //标题或内容包含关键字
+            articleListQuery = articleListQuery.Where(o => o.Title.Contains(data.KeyWord) ||
+                                                           o.Content.Contains(data.KeyWord));
         }
 
         //根据创建时间排序

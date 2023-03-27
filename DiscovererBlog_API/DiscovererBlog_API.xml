@@ -70,6 +70,23 @@
             <param name="data"></param>
             <returns></returns>
         </member>
+        <member name="T:DiscovererBlog_API.Controllers.Statistics">
+            <summary>
+            统计模块
+            </summary>
+        </member>
+        <member name="M:DiscovererBlog_API.Controllers.Statistics.ArticleCount">
+            <summary>
+            文章数量统计
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Controllers.Statistics.CommentCount">
+            <summary>
+            评论数量统计
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:DiscovererBlog_API.Controllers.User">
             <summary>
             用户信息管理
@@ -521,6 +538,26 @@
         <member name="P:DiscovererBlog_API.Entity.Response.CommentResponse.ViewComment.ViewCommentItem.Comments">
             <summary>
             文章评论列表
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Response.StatisticsResponse.ArticleCount">
+            <summary>
+            文章数量 返回
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.StatisticsResponse.ArticleCount.Count">
+            <summary>
+            文章数量
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Response.StatisticsResponse.CommentCount">
+            <summary>
+            评论数量 返回
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.StatisticsResponse.CommentCount.Count">
+            <summary>
+            评论数量
             </summary>
         </member>
         <member name="T:DiscovererBlog_API.Entity.Response.UserResponse.Register">
