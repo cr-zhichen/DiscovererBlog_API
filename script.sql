@@ -39,7 +39,9 @@ create table discoverer_blog.Comment
     Id        int auto_increment
         primary key,
     ArticleId int         not null,
-    UserId    int         not null,
+    UserId    int         null,
+    UserName  int         null,
+    Email     longtext    null,
     ParentId  int         null,
     Content   longtext    not null,
     CreatedAt datetime(6) not null,

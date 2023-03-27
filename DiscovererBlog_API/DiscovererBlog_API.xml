@@ -44,6 +44,32 @@
             <param name="data"></param>
             <returns></returns>
         </member>
+        <member name="T:DiscovererBlog_API.Controllers.Comment">
+            <summary>
+            评论管理
+            </summary>
+        </member>
+        <member name="M:DiscovererBlog_API.Controllers.Comment.PostAComment(DiscovererBlog_API.Entity.Request.CommentRequest.PostAComment)">
+            <summary>
+            发布评论
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Controllers.Comment.DeleteComment(DiscovererBlog_API.Entity.Request.CommentRequest.DeleteComment)">
+            <summary>
+            删除评论
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Controllers.Comment.ViewComment(DiscovererBlog_API.Entity.Request.CommentRequest.ViewComment)">
+            <summary>
+            查看文章评论
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
         <member name="T:DiscovererBlog_API.Controllers.User">
             <summary>
             用户信息管理
@@ -175,6 +201,56 @@
         <member name="P:DiscovererBlog_API.Entity.Request.ArticleRequest.QueryArticleList.KeyWord">
             <summary>
             查询关键字
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Request.CommentRequest.PostAComment">
+            <summary>
+            发布评论传入
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.CommentRequest.PostAComment.ArticleId">
+            <summary>
+            对应的文章ID
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.CommentRequest.PostAComment.UserName">
+            <summary>
+            评论者用户名 登录用户无需传入
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.CommentRequest.PostAComment.Email">
+            <summary>
+            评论者邮箱 登录用户无需传入
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.CommentRequest.PostAComment.ParentId">
+            <summary>
+            对应的评论ID 可为空
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.CommentRequest.PostAComment.Content">
+            <summary>
+            评论内容
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Request.CommentRequest.DeleteComment">
+            <summary>
+            删除评论传入
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.CommentRequest.DeleteComment.CommentId">
+            <summary>
+            评论ID
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Request.CommentRequest.ViewComment">
+            <summary>
+            查看评论传入
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.CommentRequest.ViewComment.ArticleId">
+            <summary>
+            对应的文章ID
             </summary>
         </member>
         <member name="T:DiscovererBlog_API.Entity.Request.UserRequest.Register">
@@ -390,6 +466,61 @@
         <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.QueryArticleList.QueryArticleItem.Introduction">
             <summary>
             文章简介100字以内
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Response.CommentResponse.PostAComment">
+            <summary>
+            发布评论返回
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.CommentResponse.PostAComment.CommentId">
+            <summary>
+            评论ID
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Response.CommentResponse.ViewComment">
+            <summary>
+            查看评论返回
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.CommentResponse.ViewComment.Comments">
+            <summary>
+            文章评论列表
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Response.CommentResponse.ViewComment.ViewCommentItem">
+            <summary>
+            查看评论返回
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.CommentResponse.ViewComment.ViewCommentItem.UserName">
+            <summary>
+            评论用户名
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.CommentResponse.ViewComment.ViewCommentItem.Email">
+            <summary>
+            评论邮箱
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.CommentResponse.ViewComment.ViewCommentItem.Content">
+            <summary>
+            评论内容
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.CommentResponse.ViewComment.ViewCommentItem.CreatedAt">
+            <summary>
+            评论创建时间
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.CommentResponse.ViewComment.ViewCommentItem.UpdatedAt">
+            <summary>
+            评论更新时间
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.CommentResponse.ViewComment.ViewCommentItem.Comments">
+            <summary>
+            文章评论列表
             </summary>
         </member>
         <member name="T:DiscovererBlog_API.Entity.Response.UserResponse.Register">

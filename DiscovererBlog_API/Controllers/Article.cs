@@ -101,13 +101,13 @@ public class Article : ControllerBase
             //判断文章是否存在
             if (article is null)
             {
-                return Ok(new Re(1, "文章不存在", null));
+                return Ok(new Re(-1, "文章不存在", null));
             }
 
             //判断是否是作者
             if (article.UserId != userId)
             {
-                return Ok(new Re(1, "你不是作者", null));
+                return Ok(new Re(-1, "你不是作者", null));
             }
 
             //将文章写入历史记录
@@ -191,13 +191,13 @@ public class Article : ControllerBase
         //判断文章是否存在
         if (article is null)
         {
-            return Ok(new Re(1, "文章不存在", null));
+            return Ok(new Re(-1, "文章不存在", null));
         }
 
         //判断是否是作者
         if (article.UserId != userId)
         {
-            return Ok(new Re(1, "你不是作者", null));
+            return Ok(new Re(-1, "你不是作者", null));
         }
 
         //删除文章
@@ -255,13 +255,13 @@ public class Article : ControllerBase
         //判断文章是否存在
         if (article is null)
         {
-            return Ok(new Re(1, "文章不存在", null));
+            return Ok(new Re(-1, "文章不存在", null));
         }
 
         //判断是否是作者
         if (article.UserId != userId)
         {
-            return Ok(new Re(1, "你不是作者", null));
+            return Ok(new Re(-1, "你不是作者", null));
         }
 
         //根据ArticleId查找历史记录列表
@@ -325,13 +325,13 @@ public class Article : ControllerBase
         //判断历史记录是否存在
         if (articleHistory is null)
         {
-            return Ok(new Re(1, "历史记录不存在", null));
+            return Ok(new Re(-1, "历史记录不存在", null));
         }
 
         //判断是否是作者
         if (articleHistory.UserId != userId)
         {
-            return Ok(new Re(1, "你不是作者", null));
+            return Ok(new Re(-1, "你不是作者", null));
         }
 
         //删除历史记录

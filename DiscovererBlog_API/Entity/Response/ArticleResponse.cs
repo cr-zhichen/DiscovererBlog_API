@@ -105,7 +105,7 @@ public class ArticleResponse
         /// <summary>
         /// 文章列表
         /// </summary>
-        public List<QueryArticleItem> ArticleList { get; set; } // 文章列表
+        public List<QueryArticleItem> ArticleList { get; set; } = new List<QueryArticleItem>(); // 文章列表
 
         /// <summary>
         /// 文章列表

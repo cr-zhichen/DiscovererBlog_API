@@ -93,7 +93,11 @@ public class Comment
 
     [ForeignKey("Article")] public int ArticleId { get; set; } // 对应文章ID
 
-    [ForeignKey("User")] public int UserId { get; set; } // 评论者ID
+    [ForeignKey("User")] public int? UserId { get; set; } // 评论者ID
+
+    public int? UserName { get; set; } // 评论者用户名
+
+    public string? Email { get; set; } // 评论者邮箱
 
     public int? ParentId { get; set; } // 用于回复评论
 

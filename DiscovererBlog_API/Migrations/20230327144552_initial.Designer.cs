@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DiscovererBlog_API.Migrations
 {
     [DbContext(typeof(DbLinkContext))]
-    [Migration("20230327114214_initial")]
+    [Migration("20230327144552_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -141,13 +141,19 @@ namespace DiscovererBlog_API.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("longtext");
+
                     b.Property<int?>("ParentId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UserName")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
