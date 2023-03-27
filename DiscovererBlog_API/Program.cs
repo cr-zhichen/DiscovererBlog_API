@@ -93,6 +93,7 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 builder.Services.AddSingleton(new JwtHelper());
+builder.Services.AddTransient<IHostedService, ScheduledTasks>();
 
 var app = builder.Build();
 
