@@ -97,12 +97,9 @@ public class Comment : ControllerBase
         await _dbLinkContext.Comment.AddAsync(comment);
         await _dbLinkContext.SaveChangesAsync();
 
-        //查找评论id
-        int commentId = _dbLinkContext.Comment.FirstOrDefault(o => o.Content == data.Content)!.Id;
-
         CommentResponse.PostAComment re = new()
         {
-            CommentId = commentId
+            CommentId = comment.Id
         };
 
         return Ok(new Re(0, "评论成功", re));
@@ -196,6 +193,7 @@ public class Comment : ControllerBase
         {
             var commentItem = new CommentResponse.ViewComment.ViewCommentItem
             {
+                Id = comment.Id,
                 UserName = comment.UserName,
                 Email = comment.Email,
                 Content = comment.Content,

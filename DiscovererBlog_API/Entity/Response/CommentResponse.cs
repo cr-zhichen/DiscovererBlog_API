@@ -28,6 +28,12 @@ public class CommentResponse
         /// </summary>
         public class ViewCommentItem
         {
+            
+            /// <summary>
+            /// 评论id
+            /// </summary>
+            public int Id { get; set; } // 评论ID
+            
             /// <summary>
             /// 评论用户名
             /// </summary>
