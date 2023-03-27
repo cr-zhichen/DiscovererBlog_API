@@ -57,10 +57,11 @@ public class ArticleHistory
 
     [ForeignKey("User")] public int UserId { get; set; } // 修改者ID
 
+    [Required] [MaxLength(255)] public string Title { get; set; } // 标题
     [Required] public string Content { get; set; } // 历史版本内容
 
     [Required] public string MarkdownContent { get; set; } // 历史版本Markdown格式内容
-
+    [MaxLength(255)] public string Tags { get; set; } // 分类（逗号分隔）
     public DateTime CreatedAt { get; set; } // 历史版本创建时间
 }
 

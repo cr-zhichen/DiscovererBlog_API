@@ -4,6 +4,46 @@
         <name>DiscovererBlog_API</name>
     </assembly>
     <members>
+        <member name="T:DiscovererBlog_API.Controllers.Article">
+            <summary>
+            文章管理
+            </summary>
+        </member>
+        <member name="M:DiscovererBlog_API.Controllers.Article.UploadArticle(DiscovererBlog_API.Entity.Request.ArticleRequest.UploadArticle)">
+            <summary>
+            上传文章
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Controllers.Article.DeleteArticle(DiscovererBlog_API.Entity.Request.ArticleRequest.DeleteArticle)">
+            <summary>
+            删除文章
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Controllers.Article.ReturnArticle(DiscovererBlog_API.Entity.Request.ArticleRequest.ReturnArticle)">
+            <summary>
+            返回文章
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Controllers.Article.DeleteHistory(DiscovererBlog_API.Entity.Request.ArticleRequest.DeleteArticle)">
+            <summary>
+            删除历史记录
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Controllers.Article.QueryArticleList(DiscovererBlog_API.Entity.Request.ArticleRequest.QueryArticleList)">
+            <summary>
+            查询文章列表
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
         <member name="T:DiscovererBlog_API.Controllers.User">
             <summary>
             用户信息管理
@@ -41,6 +81,101 @@
             </summary>
             <param name="data"></param>
             <returns></returns>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Request.ArticleRequest.UploadArticle">
+            <summary>
+            上传文章传入
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.ArticleRequest.UploadArticle.Title">
+            <summary>
+            文章标题
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.ArticleRequest.UploadArticle.Content">
+            <summary>
+            文章内容 不传则使用Md_Content
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.ArticleRequest.UploadArticle.Md_Content">
+            <summary>
+            md语法的文章内容 不传则使用Content
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.ArticleRequest.UploadArticle.Tags">
+            <summary>
+            分类，用逗号分隔
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.ArticleRequest.UploadArticle.CreateTime">
+            <summary>
+            文章创建时间 不传则使用服务器时间
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.ArticleRequest.UploadArticle.UpdateTime">
+            <summary>
+            文章更新时间 不传为当前时间
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.ArticleRequest.UploadArticle.ArticleId">
+            <summary>
+            历史记录ID 不传为无历史记录
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Request.ArticleRequest.DeleteArticle">
+            <summary>
+            删除文章传入
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.ArticleRequest.DeleteArticle.ArticleId">
+            <summary>
+            需要删除的文章ID
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Request.ArticleRequest.ReturnArticle">
+            <summary>
+            返回文章传入（用来查询文章和历史记录，这个接口需登录后使用，可查询到文章的历史记录）
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.ArticleRequest.ReturnArticle.ArticleId">
+            <summary>
+            需要删除的文章ID
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Request.ArticleRequest.DeleteHistory">
+            <summary>
+            删除历史记录传入
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.ArticleRequest.DeleteHistory.HistoryId">
+            <summary>
+            历史记录ID
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Request.ArticleRequest.QueryArticleList">
+            <summary>
+            查询文章列表传入
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.ArticleRequest.QueryArticleList.Page">
+            <summary>
+            查询页数
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.ArticleRequest.QueryArticleList.PageSize">
+            <summary>
+            每页数量
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.ArticleRequest.QueryArticleList.Tag">
+            <summary>
+            查询标签
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.ArticleRequest.QueryArticleList.KeyWord">
+            <summary>
+            查询关键字
+            </summary>
         </member>
         <member name="T:DiscovererBlog_API.Entity.Request.UserRequest.Register">
             <summary>
@@ -87,6 +222,11 @@
             发送验证码传入
             </summary>
         </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.UserRequest.SendCode.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
         <member name="T:DiscovererBlog_API.Entity.Request.UserRequest.ResetPassword">
             <summary>
             重置密码传入
@@ -115,6 +255,141 @@
         <member name="P:DiscovererBlog_API.Entity.Request.UserRequest.ModifyUserName.NewUserName">
             <summary>
             新用户名
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Response.ArticleResponse.UploadArticle">
+            <summary>
+            上传文章返回
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Response.ArticleResponse.ReturnArticle">
+            <summary>
+            返回文章返回
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.ReturnArticle.Id">
+            <summary>
+            文章ID
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.ReturnArticle.UserName">
+            <summary>
+            文章作者名
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.ReturnArticle.Title">
+            <summary>
+            文章标题
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.ReturnArticle.Content">
+            <summary>
+            文章内容
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.ReturnArticle.MarkdownContent">
+            <summary>
+            文章Markdown内容
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.ReturnArticle.Tags">
+            <summary>
+            文章分类（逗号分隔）
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.ReturnArticle.CreatedAt">
+            <summary>
+            文章创建时间
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.ReturnArticle.UpdatedAt">
+            <summary>
+            文章更新时间
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.ReturnArticle.History">
+            <summary>
+            历史记录
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Response.ArticleResponse.ReturnArticle.HistoryItem">
+            <summary>
+            历史记录创建时间
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.ReturnArticle.HistoryItem.HistoryId">
+            <summary>
+            历史记录ID
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.ReturnArticle.HistoryItem.Title">
+            <summary>
+            历史标题
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.ReturnArticle.HistoryItem.Content">
+            <summary>
+            历史内容
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.ReturnArticle.HistoryItem.MarkdownContent">
+            <summary>
+            历史Markdown内容
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.ReturnArticle.HistoryItem.Tags">
+            <summary>
+            历史分类（逗号分隔）
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.ReturnArticle.HistoryItem.CreatedAt">
+            <summary>
+            历史创建时间
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Response.ArticleResponse.QueryArticleList">
+            <summary>
+            查询文章列表返回
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.QueryArticleList.ArticleList">
+            <summary>
+            文章列表
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Response.ArticleResponse.QueryArticleList.QueryArticleItem">
+            <summary>
+            文章列表
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.QueryArticleList.QueryArticleItem.Id">
+            <summary>
+            文章ID
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.QueryArticleList.QueryArticleItem.Title">
+            <summary>
+            文章标题
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.QueryArticleList.QueryArticleItem.Tags">
+            <summary>
+            文章Tag
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.QueryArticleList.QueryArticleItem.UpdatedAt">
+            <summary>
+            文章修改时间
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.QueryArticleList.QueryArticleItem.UserName">
+            <summary>
+            文章作者名
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.QueryArticleList.QueryArticleItem.Introduction">
+            <summary>
+            文章简介100字以内
             </summary>
         </member>
         <member name="T:DiscovererBlog_API.Entity.Response.UserResponse.Register">

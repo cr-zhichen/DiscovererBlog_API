@@ -37,7 +37,7 @@ public class User : ControllerBase
     [Route("Login")]
     [AllowAnonymous]
     [EnableCors("AllowAll")]
-    public IActionResult Login(UserRequest.Login data)
+    public async Task<IActionResult> Login(UserRequest.Login data)
     {
         if (_dbLinkContext.User.Any(
                 o => o.Email == data.Email && o.Password == data.Password))

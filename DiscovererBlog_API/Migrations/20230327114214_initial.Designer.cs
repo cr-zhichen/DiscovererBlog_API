@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DiscovererBlog_API.Migrations
 {
     [DbContext(typeof(DbLinkContext))]
-    [Migration("20230327062631_initial")]
+    [Migration("20230327114214_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -79,6 +79,16 @@ namespace DiscovererBlog_API.Migrations
                     b.Property<string>("MarkdownContent")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<string>("Tags")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");

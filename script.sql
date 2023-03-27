@@ -15,11 +15,13 @@ create table discoverer_blog.ArticleHistory
 (
     Id              int auto_increment
         primary key,
-    ArticleId       int         not null,
-    UserId          int         not null,
-    Content         longtext    not null,
-    MarkdownContent longtext    not null,
-    CreatedAt       datetime(6) not null
+    ArticleId       int          not null,
+    UserId          int          not null,
+    Title           varchar(255) not null,
+    Content         longtext     not null,
+    MarkdownContent longtext     not null,
+    Tags            varchar(255) not null,
+    CreatedAt       datetime(6)  not null
 );
 
 create table discoverer_blog.Category
