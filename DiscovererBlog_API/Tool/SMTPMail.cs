@@ -12,7 +12,7 @@ public class SMTPMail
         _mailConfiguration = mailConfiguration;
     }
 
-    public bool Send()
+    public async Task<bool> Send()
     {
         try
         {
@@ -48,7 +48,7 @@ public class SMTPMail
                 smtpclient.Credentials = networkCredential;
 
                 //发送邮件
-                smtpclient.Send(mailMessage);
+                await smtpclient.SendMailAsync(mailMessage);
                 return true;
             }
             catch (System.Net.Mail.SmtpException ex)

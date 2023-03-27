@@ -4,6 +4,174 @@
         <name>DiscovererBlog_API</name>
     </assembly>
     <members>
+        <member name="T:DiscovererBlog_API.Controllers.User">
+            <summary>
+            用户信息管理
+            </summary>
+        </member>
+        <member name="M:DiscovererBlog_API.Controllers.User.Login(DiscovererBlog_API.Entity.Request.UserRequest.Login)">
+            <summary>
+            用户登录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Controllers.User.Register(DiscovererBlog_API.Entity.Request.UserRequest.Register)">
+            <summary>
+            用户注册
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Controllers.User.SendCode(DiscovererBlog_API.Entity.Request.UserRequest.SendCode)">
+            <summary>
+            发送验证码
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Controllers.User.ResetPassword(DiscovererBlog_API.Entity.Request.UserRequest.ResetPassword)">
+            <summary>
+            重置密码
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Controllers.User.ModifyUserName(DiscovererBlog_API.Entity.Request.UserRequest.ModifyUserName)">
+            <summary>
+            修改用户名
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Request.UserRequest.Register">
+            <summary>
+            注册传入
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.UserRequest.Register.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.UserRequest.Register.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.UserRequest.Register.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.UserRequest.Register.Code">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Request.UserRequest.Login">
+            <summary>
+            登录传入
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.UserRequest.Login.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.UserRequest.Login.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Request.UserRequest.SendCode">
+            <summary>
+            发送验证码传入
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Request.UserRequest.ResetPassword">
+            <summary>
+            重置密码传入
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.UserRequest.ResetPassword.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.UserRequest.ResetPassword.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.UserRequest.ResetPassword.Code">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Request.UserRequest.ModifyUserName">
+            <summary>
+            更改用户名传入
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.UserRequest.ModifyUserName.NewUserName">
+            <summary>
+            新用户名
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Response.UserResponse.Register">
+            <summary>
+            注册返回
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.UserResponse.Register.Token">
+            <summary>
+            Token
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Response.UserResponse.Login">
+            <summary>
+            登录返回
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.UserResponse.Login.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.UserResponse.Login.Token">
+            <summary>
+            Token
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Response.UserResponse.ResetPassword">
+            <summary>
+            重置密码返回
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.UserResponse.ResetPassword.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.UserResponse.ResetPassword.Token">
+            <summary>
+            Token
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Response.UserResponse.ModifyUserName">
+            <summary>
+            更改用户名返回
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.UserResponse.ModifyUserName.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.UserResponse.ModifyUserName.Token">
+            <summary>
+            Token
+            </summary>
+        </member>
         <member name="T:DiscovererBlog_API.Migrations.initial">
             <inheritdoc />
         </member>
@@ -15,6 +183,232 @@
         </member>
         <member name="M:DiscovererBlog_API.Migrations.initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
+        </member>
+        <member name="T:DiscovererBlog_API.Static.VerificationCode.Data">
+            <summary>
+            验证码保存列表数据
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Static.VerificationCode.Data.Code">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Static.VerificationCode.Data.Email">
+            <summary>
+            对应的用户
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Static.VerificationCode.Data.CreatedAt">
+            <summary>
+            验证码到期时间
+            </summary>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.Do``1(``0,System.Action{``0})">
+            <summary>
+            链式调用
+            </summary>
+            <param name="t">自身传递</param>
+            <param name="action">委托调用</param>
+            <typeparam name="T">自身类</typeparam>
+            <returns>自身传出</returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.ToMd5(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            计算md5值
+            </summary>
+            <param name="str">自身传递</param>
+            <param name="toUpper">是否为大写</param>
+            <param name="to16">是否为16位md5</param>
+            <returns>md5</returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.ToMd5(System.Byte[],System.Boolean,System.Boolean)">
+            <summary>
+            计算md5值
+            </summary>
+            <param name="bytes">自身传递</param>
+            <param name="toUpper">是否为大写</param>
+            <param name="to16">是否为16位md5</param>
+            <returns>md5</returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.ToInt(System.String)">
+            <summary>
+            string转int
+            </summary>
+            <param name="str">自身传递</param>
+            <returns>int值</returns>
+            <exception cref="T:System.Exception">转换失败</exception>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.ToFloat(System.String)">
+            <summary>
+            string转float
+            </summary>
+            <param name="str">自身传递</param>
+            <returns>float值</returns>
+            <exception cref="T:System.Exception">转换失败</exception>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.ToDouble(System.String)">
+            <summary>
+            string转double
+            </summary>
+            <param name="str">自身传递</param>
+            <returns>double值</returns>
+            <exception cref="T:System.Exception">转换失败</exception>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.IsEmail(System.String)">
+            <summary>
+            判断是否是Email格式
+            </summary>
+            <param name="str">自身传递</param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.IsMobile(System.String)">
+            <summary>
+            判断是否是手机号格式
+            </summary>
+            <param name="str">自身传递</param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.IsIdCard(System.String)">
+            <summary>
+            判断是否是身份证号格式
+            </summary>
+            <param name="str">自身传递</param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.IsUrl(System.String)">
+            <summary>
+            判断是否是Url格式
+            </summary>
+            <param name="str">自身传递</param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.IsIpv4(System.String)">
+            <summary>
+            判断是否是ipv4格式
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.IsIpv6(System.String)">
+            <summary>
+            判断是否是ipv6格式
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.IsIp(System.String)">
+            <summary>
+            判断是否是ip格式
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.IsChinese(System.String)">
+            <summary>
+            判断是否包含中文
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.IsChineseName(System.String)">
+            <summary>
+            判断是否是中文姓名格式
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.IsEnglish(System.String)">
+            <summary>
+            判断是否是英文
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.IsUpperEnglish(System.String)">
+            <summary>
+            判断是否是大写英文
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.IsLowerEnglish(System.String)">
+            <summary>
+            判断是否是小写英文
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.IsNumber(System.String)">
+            <summary>
+            判断是否是数字
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.MaskIdCard(System.String)">
+            <summary>
+            身份证号码脱敏
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.MaskMobile(System.String)">
+            <summary>
+            手机号码脱敏
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.MaskEmail(System.String)">
+            <summary>
+            邮箱脱敏
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.GetTotalMilliseconds(System.DateTime)">
+            <summary>
+            获取毫秒级时间戳
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.GetTotalSeconds(System.DateTime)">
+            <summary>
+            获取秒级时间戳
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.ToDateTimeMilliseconds(System.Double)">
+            <summary>
+            毫秒级时间戳转换为DateTime
+            </summary>
+            <param name="timestamp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.ToDateTimeSeconds(System.Double)">
+            <summary>
+            秒级时间戳转换为DateTime
+            </summary>
+            <param name="timestamp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.Expand.GetTimeDifference(System.DateTime,System.DateTime)">
+            <summary>
+            获取时间差
+            </summary>
+            <param name="dt"></param>
+            <param name="dt2">传入时间</param>
+            <returns>返回时间差 小于0为在之前，大于0为在之后 </returns>
+        </member>
+        <member name="M:DiscovererBlog_API.Tool.ScheduledTasks.ScheduledTask.Start">
+            <summary>
+            开始任务
+            </summary>
         </member>
         <member name="T:User">
             <summary>
