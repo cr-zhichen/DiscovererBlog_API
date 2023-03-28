@@ -30,7 +30,7 @@ jobs:
       - name: Test
         run: dotnet test --no-build --verbosity normal
       - name: Publish
-        run: dotnet publish --no-build -c Release -r ${{ matrix.architecture }} --framework ${{ matrix.framework }} -o ./publish/${{ matrix.os }}-${{ matrix.architecture }}-${{ matrix.framework }}
+        run: dotnet publish --no-build -c Release --framework ${{ matrix.framework }} -o ./publish/${{ matrix.os }}-${{ matrix.architecture }}-${{ matrix.framework }}
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
