@@ -1,0 +1,44 @@
+name: .NET
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ 'ubuntu-latest', 'macos-latest', 'windows-latest' ]
+        architecture: [ 'x64', 'arm64' ]
+        framework: [ 'net7.0', 'net6.0' ]
+        exclude:
+          - os: 'macos-latest'
+            framework: 'net48'
+          - os: 'windows-latest'
+            architecture: 'arm64'
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore -c Release -r ${{ matrix.architecture }} --framework ${{ matrix.framework }}
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
+    - name: Publish
+      run: dotnet publish --no-build -c Release -r ${{ matrix.architecture }} --framework ${{ matrix.framework }} -o ./publish/${{ matrix.os }}-${{ matrix.architecture }}-${{ matrix.framework }}
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ matrix.os }}-${{ matrix.architecture }}-${{ matrix.framework }}
+        path: ./publish/${{ matrix.os }}-${{ matrix.architecture }}-${{ matrix.framework }}
