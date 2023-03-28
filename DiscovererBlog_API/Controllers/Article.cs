@@ -322,7 +322,7 @@ public class Article : ControllerBase
     [Authorize]
     [Route("DeleteHistory")]
     [EnableCors("AllowAll")]
-    public async Task<IActionResult> DeleteHistory(ArticleRequest.DeleteArticle data)
+    public async Task<IActionResult> DeleteHistory(ArticleRequest.DeleteHistory data)
     {
         //根据Token获取用户信息
         var claimsIdentity = HttpContext.User.Identity as ClaimsIdentity;
@@ -332,7 +332,7 @@ public class Article : ControllerBase
 
         //根据HistoryId查找历史记录
         ArticleHistory? articleHistory =
-            _dbLinkContext.ArticleHistory.FirstOrDefault(o => o.Id == data.ArticleId);
+            _dbLinkContext.ArticleHistory.FirstOrDefault(o => o.Id == data.HistoryId);
 
         //判断历史记录是否存在
         if (articleHistory is null)
