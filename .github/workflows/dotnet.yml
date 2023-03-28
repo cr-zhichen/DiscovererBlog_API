@@ -15,12 +15,7 @@ jobs:
       matrix:
         os: ["ubuntu-latest", "macos-latest", "windows-latest"]
         architecture: ["x64", "arm64"]
-        framework: ["net7.0", "net6.0", "net48"]
-        exclude:
-          - os: "macos-latest"
-            framework: "net48"
-          - os: "windows-latest"
-            architecture: "arm64"
+        framework: ["net7.0", "net6.0"]
 
     steps:
       - uses: actions/checkout@v3
@@ -31,7 +26,7 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
       - name: Build
-        run: dotnet build --no-restore -c Release -r ${{ matrix.architecture }} --framework ${{ matrix.framework }}
+        run: dotnet build --no-restore -c Release --framework ${{ matrix.framework }}
       - name: Test
         run: dotnet test --no-build --verbosity normal
       - name: Publish
