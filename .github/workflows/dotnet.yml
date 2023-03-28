@@ -54,8 +54,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         with:
-          tag_name: v${{ steps.bump_version.outputs.stdout }}-$(date +%Y%m%d)
-          release_name: Release v${{ steps.bump_version.outputs.stdout }}-$(date +%Y%m%d)
+          tag_name: $((date +%s))
+          release_name: Release $((date +%s))
           draft: false
           prerelease: false
       - name: Upload Release Asset
