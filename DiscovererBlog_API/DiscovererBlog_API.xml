@@ -44,6 +44,13 @@
             <param name="data"></param>
             <returns></returns>
         </member>
+        <member name="M:DiscovererBlog_API.Controllers.Article.QueryArticle(DiscovererBlog_API.Entity.Request.ArticleRequest.QueryArticle)">
+            <summary>
+            查看文章
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
         <member name="T:DiscovererBlog_API.Controllers.Comment">
             <summary>
             评论管理
@@ -218,6 +225,16 @@
         <member name="P:DiscovererBlog_API.Entity.Request.ArticleRequest.QueryArticleList.KeyWord">
             <summary>
             查询关键字
+            </summary>
+        </member>
+        <member name="T:DiscovererBlog_API.Entity.Request.ArticleRequest.QueryArticle">
+            <summary>
+            查询文章传入
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Request.ArticleRequest.QueryArticle.ArticleId">
+            <summary>
+            文章ID
             </summary>
         </member>
         <member name="T:DiscovererBlog_API.Entity.Request.CommentRequest.PostAComment">
@@ -485,6 +502,51 @@
             文章简介100字以内
             </summary>
         </member>
+        <member name="T:DiscovererBlog_API.Entity.Response.ArticleResponse.QueryArticle">
+            <summary>
+            查询文章返回
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.QueryArticle.Id">
+            <summary>
+            文章ID
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.QueryArticle.UserName">
+            <summary>
+            文章作者名
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.QueryArticle.Title">
+            <summary>
+            文章标题
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.QueryArticle.Content">
+            <summary>
+            文章内容
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.QueryArticle.MarkdownContent">
+            <summary>
+            文章Markdown内容
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.QueryArticle.Tags">
+            <summary>
+            文章分类（逗号分隔）
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.QueryArticle.CreatedAt">
+            <summary>
+            文章创建时间
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.ArticleResponse.QueryArticle.UpdatedAt">
+            <summary>
+            文章更新时间
+            </summary>
+        </member>
         <member name="T:DiscovererBlog_API.Entity.Response.CommentResponse.PostAComment">
             <summary>
             发布评论返回
@@ -508,6 +570,11 @@
         <member name="T:DiscovererBlog_API.Entity.Response.CommentResponse.ViewComment.ViewCommentItem">
             <summary>
             查看评论返回
+            </summary>
+        </member>
+        <member name="P:DiscovererBlog_API.Entity.Response.CommentResponse.ViewComment.ViewCommentItem.Id">
+            <summary>
+            评论id
             </summary>
         </member>
         <member name="P:DiscovererBlog_API.Entity.Response.CommentResponse.ViewComment.ViewCommentItem.UserName">

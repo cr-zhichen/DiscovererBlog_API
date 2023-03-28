@@ -23,7 +23,7 @@ public class ArticleResponse
         /// <summary>
         /// 文章作者名
         /// </summary>
-        public int UserName { get; set; } // 文章作者名
+        public string UserName { get; set; } // 文章作者名
 
         /// <summary>
         /// 文章标题
@@ -142,5 +142,51 @@ public class ArticleResponse
             /// </summary>
             public string Introduction { get; set; } // 文章简介
         }
+    }
+
+    /// <summary>
+    /// 查询文章返回
+    /// </summary>
+    public class QueryArticle
+    {
+        /// <summary>
+        /// 文章ID
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
+        /// 文章作者名
+        /// </summary>
+        public string UserName { get; set; } // 文章作者名
+
+        /// <summary>
+        /// 文章标题
+        /// </summary>
+        public string Title { get; set; } // 标题
+
+        /// <summary>
+        /// 文章内容
+        /// </summary>
+        public string Content { get; set; } // 内容
+
+        /// <summary>
+        /// 文章Markdown内容
+        /// </summary>
+        public string MarkdownContent { get; set; } // Markdown格式内容
+
+        /// <summary>
+        /// 文章分类（逗号分隔）
+        /// </summary>
+        public string Tags { get; set; } // 分类（逗号分隔）
+
+        /// <summary>
+        /// 文章创建时间
+        /// </summary>
+        public DateTime CreatedAt { get; set; } // 文章创建时间
+
+        /// <summary>
+        /// 文章更新时间
+        /// </summary>
+        public DateTime UpdatedAt { get; set; } // 文章更新时间
     }
 }

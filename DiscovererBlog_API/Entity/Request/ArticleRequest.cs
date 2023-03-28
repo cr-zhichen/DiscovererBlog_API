@@ -101,4 +101,15 @@ public class ArticleRequest
         /// </summary>
         public string? KeyWord { get; set; }
     }
+
+    /// <summary>
+    /// 查询文章传入
+    /// </summary>
+    public class QueryArticle
+    {
+        /// <summary>
+        /// 文章ID
+        /// </summary>
+        public int ArticleId { get; set; }
+    }
 }

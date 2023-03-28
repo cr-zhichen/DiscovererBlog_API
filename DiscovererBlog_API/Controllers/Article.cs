@@ -258,6 +258,7 @@ public class Article : ControllerBase
         var claims = claimsIdentity?.Claims;
         var email = claims?.FirstOrDefault(o => o.Type == ClaimTypes.Email)?.Value;
         var userId = _dbLinkContext.User.FirstOrDefault(o => o.Email == email)!.Id;
+        var userName = _dbLinkContext.User.FirstOrDefault(o => o.Email == email)!.Username;
 
         //根据ArticleId查找文章
         global::Article? article =
@@ -298,7 +299,7 @@ public class Article : ControllerBase
         var re = new ArticleResponse.ReturnArticle()
         {
             Id = article.Id,
-            UserName = userId,
+            UserName = userName,
             Title = article.Title,
             Content = article.Content,
             MarkdownContent = article.MarkdownContent,
@@ -414,6 +415,46 @@ public class Article : ControllerBase
                 Introduction = introduction
             });
         }
+
+        return Ok(new Re(0, "成功返回", re));
+    }
+
+    /// <summary>
+    /// 查看文章
+    /// </summary>
+    /// <param name="data"></param>
+    /// <returns></returns>
+    [HttpPost]
+    [AllowAnonymous]
+    [Route("QueryArticle")]
+    [EnableCors("AllowAll")]
+    public async Task<IActionResult> QueryArticle(ArticleRequest.QueryArticle data)
+    {
+        //根据ArticleId查找文章
+        global::Article? article =
+            _dbLinkContext.Article.FirstOrDefault(o => o.Id == data.ArticleId);
+
+
+        //判断文章是否存在
+        if (article is null)
+        {
+            return Ok(new Re(-1, "文章不存在", null));
+        }
+
+        //根据文章UserId查找用户名
+        string userName = _dbLinkContext.User.FirstOrDefault(o => o.Id == article!.UserId)!.Username;
+
+        ArticleResponse.QueryArticle re = new()
+        {
+            Id = article.Id,
+            Title = article.Title,
+            Content = article.Content,
+            MarkdownContent = article.MarkdownContent,
+            Tags = article.Tags,
+            CreatedAt = article.CreatedAt,
+            UpdatedAt = article.UpdatedAt,
+            UserName = userName
+        };
 
         return Ok(new Re(0, "成功返回", re));
     }
