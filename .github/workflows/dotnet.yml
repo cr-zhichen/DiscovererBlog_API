@@ -15,7 +15,7 @@ jobs:
       matrix:
         os: ["ubuntu-latest", "macos-latest", "windows-latest"]
         architecture: ["x64", "arm64"]
-        framework: ["net6.0"]
+        framework: ["net7.0"]
 
     steps:
       - uses: actions/checkout@v3
