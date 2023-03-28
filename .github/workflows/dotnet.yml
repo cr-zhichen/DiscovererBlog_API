@@ -30,12 +30,12 @@ jobs:
       - name: Test
         run: dotnet test --no-build --verbosity normal
       - name: Publish
-        run: dotnet publish --no-build -c Release --framework ${{ matrix.framework }} -o ./publish/${{ matrix.os }}-${{ matrix.architecture }}-${{ matrix.framework }}
+        run: dotnet publish --no-build -c Release --framework ${{ matrix.framework }} -o ./publish
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: ${{ matrix.os }}-${{ matrix.architecture }}-${{ matrix.framework }}.zip
-          path: ./publish/${{ matrix.os }}-${{ matrix.architecture }}-${{ matrix.framework }}
+          path: ./publish
 
   release:
     needs: build
@@ -61,6 +61,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./publish/${{ matrix.os }}-${{ matrix.architecture }}-${{ matrix.framework }}
+          asset_path: ./publish
           asset_name: ${{ matrix.os }}-${{ matrix.architecture }}-${{ matrix.framework }}.zip
           asset_content_type: application/zip
