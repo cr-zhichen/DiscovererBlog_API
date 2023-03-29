@@ -15,7 +15,7 @@ public class CommentRequest
         /// <summary>
         /// 评论者用户名 登录用户无需传入
         /// </summary>
-        public int? UserName { get; set; } // 评论者用户名
+        public string? UserName { get; set; } // 评论者用户名
 
         /// <summary>
         /// 评论者邮箱 登录用户无需传入

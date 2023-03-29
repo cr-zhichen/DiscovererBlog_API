@@ -40,7 +40,7 @@ create table discoverer_blog.Comment
         primary key,
     ArticleId int         not null,
     UserId    int         null,
-    UserName  int         null,
+    UserName  varchar(50) null,
     Email     longtext    null,
     ParentId  int         null,
     Content   longtext    not null,

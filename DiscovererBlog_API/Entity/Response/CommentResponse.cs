@@ -37,7 +37,7 @@ public class CommentResponse
             /// <summary>
             /// 评论用户名
             /// </summary>
-            public int? UserName { get; set; } // 评论者用户名
+            public string? UserName { get; set; } // 评论者用户名
 
             /// <summary>
             /// 评论邮箱

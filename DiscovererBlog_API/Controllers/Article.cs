@@ -385,7 +385,6 @@ public class Article : ControllerBase
     public async Task<IActionResult> QueryArticleList(ArticleRequest.QueryArticleList data)
     {
         string[]? tags = data.Tag?.Split(",");
-        ArticleRequest.QueryArticleList articleList = new();
 
         //根据条件查询文章列表
         var articleListQuery = _dbLinkContext.Article.AsQueryable();

@@ -95,7 +95,7 @@ public class Comment
 
     [ForeignKey("User")] public int? UserId { get; set; } // 评论者ID
 
-    public int? UserName { get; set; } // 评论者用户名
+    public string? UserName { get; set; } // 评论者用户名
 
     public string? Email { get; set; } // 评论者邮箱
 
