@@ -133,6 +133,26 @@ public class Article : ControllerBase
                 CreatedAt = article.CreatedAt,
             });
 
+            //使用逗号分隔标签 并转换为数组
+            string[] tags = article.Tags.Split(",");
+
+            //判断标签是否存在  
+            foreach (var tag in tags)
+            {
+                //从标签中移除文章Id
+                _dbLinkContext.Category.FirstOrDefault(o => o.Name == tag)!.Articles =
+                    _dbLinkContext.Category.FirstOrDefault(o => o.Name == tag)!.Articles.Replace(
+                        article.Id + ",", "");
+
+                //判断标签是否还有文章
+                if (_dbLinkContext.Category.FirstOrDefault(o => o.Name == tag)!.Articles == "")
+                {
+                    //删除标签
+                    _dbLinkContext.Category.Remove(_dbLinkContext.Category.FirstOrDefault(o => o.Name == tag)!);
+                }
+            }
+
+
             //修改文章
             article.Title = data.Title;
             article.Content = data.Content ?? "";
@@ -146,9 +166,9 @@ public class Article : ControllerBase
             await _dbLinkContext.SaveChangesAsync();
 
             //使用逗号分隔标签 并转换为数组
-            string[] tags = data.Tags.Split(",");
+            string[] newTags = data.Tags.Split(",");
             //判断标签是否存在
-            foreach (string tag in tags)
+            foreach (string tag in newTags)
             {
                 if (!_dbLinkContext.Category.Any(o => o.Name == tag))
                 {
